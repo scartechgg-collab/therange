@@ -7,7 +7,7 @@ export function Logo({ size = 40, glow = true }: LogoProps) {
   return (
     <div className="relative flex-shrink-0" style={{ width: size, height: size }}>
       <img
-        src="https://i.postimg.cc/jjg0wsJm/logo.png"
+        src="https://files.catbox.moe/u1e6bk.png"
         alt="Range Cloud Hosting"
         width={size}
         height={size}
