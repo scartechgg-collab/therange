@@ -407,7 +407,7 @@ export function CheckoutModal({ isOpen, plan, currency, onClose, onSuccess, onGo
                   </button>
                 </div>
 
-                {/* Discord handoff */}
+                                {/* Discord handoff */}
                 <div className="rounded-2xl p-5 mb-5 bg-[#5865F2]/10 border border-[#5865F2]/30">
                   <div className="flex items-center gap-2 mb-2">
                     <svg className="w-5 h-5 text-[#8b95f7]" viewBox="0 0 24 24" fill="currentColor">
@@ -418,22 +418,14 @@ export function CheckoutModal({ isOpen, plan, currency, onClose, onSuccess, onGo
                   <p className="text-xs text-white/60 leading-relaxed mb-4">
                     Join our Discord server and create a ticket with your <span className="text-white font-semibold">invoice</span> and <span className="text-white font-semibold">payment screenshot</span> to activate your service.
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    <a
-                      href={DISCORD_INVITE}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="py-3 rounded-xl text-xs font-black uppercase tracking-wider text-white bg-[#5865F2] hover:bg-[#4752c4] transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#5865F2]/25"
-                    >
-                      Join Discord Server
-                    </a>
-                    <button
-                      onClick={onGoToPanel}
-                      className="btn-primary py-3 rounded-xl text-xs font-black uppercase tracking-wider text-white"
-                    >
-                      Go to Panel →
-                    </button>
-                  </div>
+                  <a
+                    href={DISCORD_INVITE}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-3 rounded-xl text-xs font-black uppercase tracking-wider text-white bg-[#5865F2] hover:bg-[#4752c4] transition-all text-center shadow-lg shadow-[#5865F2]/25"
+                  >
+                    Join Discord Server
+                  </a>
                 </div>
 
                 <button onClick={onClose} className="w-full text-[11px] text-white/30 hover:text-white/60 transition-colors">
