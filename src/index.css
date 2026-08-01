@@ -1,0 +1,353 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00A8FF;
+  --color-primary-dark: #0052FF;
+  --color-accent: #00D9FF;
+  --color-dark: #050505;
+  --color-dark-card: #0a0a16;
+  --color-dark-border: #14142f;
+  --color-dark-surface: #070712;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #00A8FF20 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #00A8FF30;
+  border-radius: 3px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #020208;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* SOLID cards — used for plans, panels & all important content */
+.solid-card {
+  background: #000000;
+  border: 1px solid rgba(0, 168, 255, 0.16);
+}
+
+.solid-card-alt {
+  background: #06060c;
+  border: 1px solid rgba(0, 168, 255, 0.14);
+}
+
+/* Glassmorphism with Space depth */
+.glass {
+  background: rgba(8, 8, 24, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 168, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(6, 6, 18, 0.75);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 168, 255, 0.15);
+}
+
+/* Neon glow effects */
+.neon-glow {
+  box-shadow: 0 0 25px rgba(0, 168, 255, 0.15), 0 0 60px rgba(0, 168, 255, 0.05);
+}
+
+.neon-glow-strong {
+  box-shadow: 0 0 35px rgba(0, 168, 255, 0.25), 0 0 90px rgba(0, 168, 255, 0.1);
+}
+
+.neon-border {
+  border: 1px solid rgba(0, 168, 255, 0.3);
+}
+
+.neon-text {
+  text-shadow: 0 0 20px rgba(0, 168, 255, 0.5), 0 0 40px rgba(0, 168, 255, 0.2);
+}
+
+/* Premium Gradient Fonts */
+.gradient-font-premium {
+  background: linear-gradient(135deg, #ffffff 30%, #a5d8ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-font-cyan {
+  background: linear-gradient(135deg, #00D9FF 0%, #0052FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #00A8FF, #0052FF, #00D9FF, #0052FF);
+  background-size: 300% 300%;
+  animation: gradientMove 4s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes gradientMove {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Floating particles and Space Dust */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(-10px) translateX(-10px); }
+  75% { transform: translateY(-30px) translateX(5px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.2; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.5; transform: scale(1.15) rotate(180deg); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 15s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+/* Grid overlay with cosmic perspective */
+.grid-overlay {
+  background-image: 
+    linear-gradient(rgba(0, 168, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 168, 255, 0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Button ripple & glow */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #00A8FF, #0052FF);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 168, 255, 0.2);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 35px rgba(0, 168, 255, 0.5), 0 0 70px rgba(0, 168, 255, 0.25);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.btn-secondary {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 168, 255, 0.3);
+  background: rgba(0, 168, 255, 0.03);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 168, 255, 0.12);
+  border-color: rgba(0, 168, 255, 0.6);
+  box-shadow: 0 0 25px rgba(0, 168, 255, 0.25);
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0, 168, 255, 0.18), 0 0 35px rgba(0, 168, 255, 0.1);
+  border-color: rgba(0, 168, 255, 0.35);
+}
+
+/* Status indicators */
+.status-online {
+  background: #00ff88;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
+}
+
+.status-offline {
+  background: #ff4444;
+  box-shadow: 0 0 12px rgba(255, 68, 68, 0.6);
+}
+
+.status-maintenance {
+  background: #ffaa00;
+  box-shadow: 0 0 12px rgba(255, 170, 0, 0.6);
+}
+
+/* ── SPACE SCENE: stars, meteors, asteroids ─────────────── */
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.8); }
+  50% { opacity: 0.9; transform: scale(1.2); }
+}
+
+.star-twinkle {
+  animation: starTwinkle 4s ease-in-out infinite;
+}
+
+/* Meteors (shooting stars) with long burning trails */
+.meteor {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #eaffff;
+  opacity: 0;
+  animation: meteorFall 9s linear infinite;
+  box-shadow:
+    0 0 6px 2px rgba(0, 217, 255, 0.9),
+    0 0 14px 4px rgba(0, 168, 255, 0.5);
+}
+
+.meteor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 180px;
+  height: 1.5px;
+  transform: translateY(-50%);
+  background: linear-gradient(to left, rgba(160, 235, 255, 0.9), rgba(0, 168, 255, 0.35) 40%, transparent);
+  border-radius: 999px;
+}
+
+@keyframes meteorFall {
+  0% {
+    transform: rotate(-35deg) translateX(0) translateY(0) scale(0.6);
+    opacity: 0;
+  }
+  2% { opacity: 1; }
+  9% {
+    transform: rotate(-35deg) translateX(-1200px) translateY(1200px) scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(-35deg) translateX(-1200px) translateY(1200px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Tumbling asteroids drifting across the viewport */
+.asteroid {
+  position: absolute;
+  right: -120px;
+  opacity: 0;
+  animation: asteroidDrift linear infinite;
+  filter: drop-shadow(0 0 10px rgba(0, 168, 255, 0.18));
+  will-change: transform;
+}
+
+.asteroid::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 60%;
+  width: 90px;
+  height: 3px;
+  transform: translateY(-50%);
+  background: linear-gradient(to left, rgba(0, 168, 255, 0.3), transparent);
+  border-radius: 999px;
+}
+
+@keyframes asteroidDrift {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  6% { opacity: 0.9; }
+  90% { opacity: 0.9; }
+  100% {
+    transform: translate(-125vw, 45vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ── MOBILE OPTIMISATIONS ─────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Lighter blurs = far smoother scrolling on phones */
+  .glass {
+    background: rgba(6, 6, 16, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .glass-strong {
+    background: rgba(4, 4, 12, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  /* Disable heavy transform hovers (no hover on touch) */
+  .card-hover:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none;
+  }
+
+  /* Fewer / smaller decorative elements */
+  .asteroid { transform: scale(0.6); }
+  .meteor::before { width: 110px; }
+  .grid-overlay { background-size: 40px 40px; }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .meteor, .asteroid { display: none; }
+}
+
+/* Prevent iOS input zoom */
+@media (max-width: 640px) {
+  input, select, textarea { font-size: 16px !important; }
+}
+
+/* Nicer tap highlight */
+button, a { -webkit-tap-highlight-color: rgba(0, 168, 255, 0.15); }
